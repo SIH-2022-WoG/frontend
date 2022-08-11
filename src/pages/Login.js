@@ -5,6 +5,8 @@
 // - student
 
 import React, { useState } from "react";
+import { Button } from "react-bootstrap";
+import Base from "../components/Base";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -18,35 +20,48 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>username</label>
-        <input
-          type="text"
-          required
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        ></input>
+    <Base title="Login">
+      <div className="container m-10 p-10 w-50 bg-dark">
+        <form onSubmit={handleSubmit}>
+          <label className="text-secondary m-3">Username</label>
+          <input
+            className="form-control"
+            type="text"
+            required
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          ></input>
 
-        <label>Password</label>
-        <input
-          type="text"
-          required
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        ></input>
+          <label className="text-secondary m-3">Password</label>
+          <input
+            className="form-control"
+            type="text"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          ></input>
 
-        <label>Role</label>
-        <select value={role} onChange={(e) => setRole(e.target.value)}>
-          <option value="moderator">Moderator</option>
-          <option value="college">College</option>
-          <option value="professor">Professor</option>
-          <option value="student">Student</option>
-        </select>
+          <label className="text-secondary m-3">Role</label>
+          <select
+            className="form-control"
+            value={role}
+            onChange={(e) => setRole(e.target.value)}
+          >
+            <option value="moderator">Moderator</option>
+            <option value="college">College</option>
+            <option value="professor">Professor</option>
+            <option value="student">Student</option>
+          </select>
 
-        <button type="submit">Login</button>
-      </form>
-    </div>
+          <Button
+            className="m-5 btn btn-success btn-lg text-white"
+            type="submit"
+          >
+            Login
+          </Button>
+        </form>
+      </div>
+    </Base>
   );
 };
 

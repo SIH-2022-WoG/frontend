@@ -1,5 +1,6 @@
-import logo from "./logo.svg";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Base from "./components/Base";
 import Login from "./pages/Login";
 
 function App() {
