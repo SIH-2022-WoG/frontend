@@ -1,1 +1,1 @@
-export const backend = "http://127.0.0.1:8004";
+export const backend = process.env.REACT_APP_BACKEND;
