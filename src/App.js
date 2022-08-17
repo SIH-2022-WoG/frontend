@@ -11,17 +11,17 @@ import {Dashboard} from "./pages/Dashboard";
 import Base from "./components/Base";
 
 function App() {
-  // const [isSidebarOpen, setSidebarOpen] = useState(true);
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
 
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
         <CssBaseline>
-          <Base>
+          <Base setSidebarOpen={setSidebarOpen} isSidebarOpen={isSidebarOpen}>
             <Router>
               <Routes>
                 <Route exact path="/" /*element={<Homepage />}*/ />
-                <Route path="/dashboard" element={<Dashboard /*onSidebarOpen={() => setSidebarOpen(true)}*/ />} />
+                <Route path="/dashboard" element={<Dashboard setSidebarOpen={setSidebarOpen} isSidebarOpen={isSidebarOpen} />} />
                 <Route exact path="/search" /*element={<Search />}*/ />
                 <Route exact path="/theses" /*element={<Theses />}*/ />
                 <Route exact path="/login" element={<Login />} />

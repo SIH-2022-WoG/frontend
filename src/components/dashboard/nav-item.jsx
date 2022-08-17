@@ -6,7 +6,6 @@ export const NavItem = (props) => {
   const { href, icon, title, ...others } = props;
   const router = useLocation();
   const active = href ? (router.pathname === href) : false;
-  console.log(router.pathname, href, active);
 
   return (
     <ListItem
@@ -22,7 +21,7 @@ export const NavItem = (props) => {
       <Button
         component="a"
         href={href}
-        // startIcon={icon}
+        startIcon={icon}
         disableRipple
         sx={{
           backgroundColor: active && "rgba(255,255,255, 0.08)",

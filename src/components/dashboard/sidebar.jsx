@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, Divider, Drawer, Typography, useMediaQuery, Link, Toolbar } from '@mui/material';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-// import { ChartBar as ChartBarIcon } from '../icons/chart-bar';
+// import { ChartBar as ChartBarIcon } from '@mui/icons-material';
 // import { Cog as CogIcon } from '../icons/cog';
 // import { Lock as LockIcon } from '../icons/lock';
 // import { Selector as SelectorIcon } from '../icons/selector';
@@ -14,12 +14,13 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 // import { Users as UsersIcon } from '../icons/users';
 // import { XCircle as XCircleIcon } from '../icons/x-circle';
 // import { Logo } from './logo';
+import DashboardIcon from '@mui/icons-material/Dashboard';
 import { NavItem } from './nav-item';
 
 const items = [
   {
     href: '/dashboard',
-    // icon: (<ChartBarIcon fontSize="small" />),
+    icon: (<DashboardIcon fontSize="small" />),
     title: 'Dashboard'
   },
   {
@@ -60,26 +61,26 @@ const items = [
 ];
 
 export const DashboardSidebar = (props) => {
-//   const { open, onClose } = props;
+  const { open, onClose } = props;
 //   const router = useRouter();
   const lgUp = useMediaQuery((theme) => theme.breakpoints.up('lg'), {
     defaultMatches: true,
     noSsr: false
   });
 
-//   useEffect(
-//     () => {
-//       if (!router.isReady) {
-//         return;
-//       }
+  // useEffect(
+  //   () => {
+  //     if (!router.isReady) {
+  //       return;
+  //     }
 
-//       if (open) {
-//         onClose?.();
-//       }
-//     },
-//     // eslint-disable-next-line react-hooks/exhaustive-deps
-//     [router.asPath]
-//   );
+  //     if (open) {
+  //       onClose?.();
+  //     }
+  //   },
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  //   [router.asPath]
+  // );
 
   const content = (
     <>
@@ -130,8 +131,8 @@ export const DashboardSidebar = (props) => {
   return (
     <Drawer
       anchor="left"
-    //   onClose={onClose}
-    //   open={open}
+      onClose={onClose}
+      open={open}
       PaperProps={{
         sx: {
           backgroundColor: 'neutral.900',
