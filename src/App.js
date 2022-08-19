@@ -9,6 +9,8 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import {Dashboard} from "./pages/Dashboard";
 import Base from "./components/Base";
+import AllTheses from "./pages/student/AllTheses"
+import Dashboardmain from "./components/dashboard/dashboard-main"
 
 function App() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -21,9 +23,9 @@ function App() {
             <Router>
               <Routes>
                 <Route exact path="/" /*element={<Homepage />}*/ />
-                <Route path="/dashboard" element={<Dashboard setSidebarOpen={setSidebarOpen} isSidebarOpen={isSidebarOpen} />} />
+                <Route path="/dashboard" element={<Dashboard setSidebarOpen={setSidebarOpen} isSidebarOpen={isSidebarOpen} element={<Dashboardmain />} />} />
                 <Route exact path="/search" /*element={<Search />}*/ />
-                <Route exact path="/theses" /*element={<Theses />}*/ />
+                <Route exact path="/theses" element={<Dashboard setSidebarOpen={setSidebarOpen} isSidebarOpen={isSidebarOpen} element={<AllTheses />} />} />
                 <Route exact path="/login" element={<Login />} />
                 <Route exact path="/signup" element={<Signup />} />
               </Routes>

@@ -15,6 +15,7 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 // import { XCircle as XCircleIcon } from '../icons/x-circle';
 // import { Logo } from './logo';
 import DashboardIcon from '@mui/icons-material/Dashboard';
+import ArticleIcon from '@mui/icons-material/Article';
 import { NavItem } from './nav-item';
 
 const items = [
@@ -24,9 +25,9 @@ const items = [
     title: 'Dashboard'
   },
   {
-    href: '/customers',
-    // icon: (<UsersIcon fontSize="small" />),
-    title: 'Customers'
+    href: '/theses',
+    icon: (<ArticleIcon fontSize="small" />),
+    title: 'All Submitted Theses'
   },
   {
     href: '/products',

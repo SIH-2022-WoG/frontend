@@ -4,7 +4,6 @@ import { styled } from '@mui/material/styles';
 // import { DashboardNavbar } from './dashboard-navbar';
 // import { DashboardSidebar } from './sidebar';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Dashboardmain from "../components/dashboard/dashboard-main"
 import {DashboardSidebar} from "../components/dashboard/sidebar"
 
 const DashboardLayoutRoot = styled('div')(({ theme }) => ({
@@ -34,7 +33,7 @@ export const Dashboard = (props) => {
               <Route path="/dashboard" delement={<Dashboardmain />} />
             </Routes>
           </Router> */}
-          <Dashboardmain />
+          {props.element}
         </Box>
       </DashboardLayoutRoot>
       {/* <DashboardNavbar onSidebarOpen={() => setSidebarOpen(true)} /> */}
