@@ -1,7 +1,7 @@
 import React from "react";
 import { v4 as uuid } from "uuid";
 import { Submissions } from "../../components/dashboard/Table";
-import {Container, Typography} from "@mui/material"
+import { Container, Typography } from "@mui/material";
 
 const data = [
   {
@@ -128,16 +128,15 @@ const data = [
 
 export default function AllTheses() {
   return (
-    <Container sx={{
+    <Container
+      sx={{
         py: 8,
-      }}>
-      <Typography
-          sx={{ mb: 3 }}
-          variant="h4"
-        >
-          Submitted Theses
-        </Typography>
-        <Submissions data={data} title="All Submissions" viewAll={false}/>
+      }}
+    >
+      <Typography sx={{ mb: 3 }} variant="h4">
+        Submitted Theses
+      </Typography>
+      <Submissions data={data} title="All Submissions" viewAll={false} />
     </Container>
   );
 }
