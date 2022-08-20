@@ -47,8 +47,11 @@ export default function Thesis() {
                 <Typography variant="body2">
                   Computer Science and Engineering
                 </Typography>
+                <Typography variant="body2">
+                  National Institute of Technology Durgapur
+                </Typography>
                 <Stack spacing={2} direction="row" alignItems="baseline" mt={1}>
-                  <Typography variant="body2">Guide:</Typography>
+                  <Typography variant="body2">Guide(s):</Typography>
                   <Chip
                     avatar={
                       <Avatar sx={{ bgcolor: deepOrange[500] }}>JS</Avatar>
