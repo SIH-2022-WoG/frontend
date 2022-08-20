@@ -1,12 +1,23 @@
 import React from "react";
 
+const style = {
+  borderTop: "1px solid #E7E7E7",
+  textAlign: "center",
+  position: "fixed",
+  paddingTop: "10px",
+  left: "0",
+  bottom: "0",
+  height: "60px",
+  width: "100%",
+};
+
 const Footer = () => {
   return (
-    <footer className="mt-auto bg-success">
-      <div className="footer-copyright text-center py-3">
+    <div>
+      <div style={style}>
         © 2020 Copyright: <h4>WrathOfGod - SIH 2022</h4>
       </div>
-    </footer>
+    </div>
   );
 };
 

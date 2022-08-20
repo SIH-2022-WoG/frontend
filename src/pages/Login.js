@@ -5,8 +5,8 @@
 // - student
 
 import React, { useState } from "react";
-import { Button } from "react-bootstrap";
 import Base from "../components/Base";
+import { Paper, TextField, MenuItem, Select, Button } from "@mui/material";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -21,46 +21,48 @@ const Login = () => {
 
   return (
     <Base title="Login">
-      <div className="container m-10 p-10 w-50 bg-dark">
-        <form onSubmit={handleSubmit}>
-          <label className="text-secondary m-3">Email</label>
-          <input
-            className="form-control"
-            type="text"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          ></input>
+      <Paper elevation={4}>
+        <div className="container m-10 p-10 w-50 bg-dark">
+          <form onSubmit={handleSubmit}>
+            <TextField
+              id="email"
+              type="text"
+              required
+              label="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            ></TextField>
+            <br />
 
-          <label className="text-secondary m-3">Password</label>
-          <input
-            className="form-control"
-            type="text"
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          ></input>
+            <TextField
+              id="password"
+              type="text"
+              required
+              label="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            ></TextField>
 
-          <label className="text-secondary m-3">Role</label>
-          <select
-            className="form-control"
-            value={role}
-            onChange={(e) => setRole(e.target.value)}
-          >
-            <option value="moderator">Moderator</option>
-            <option value="college">College</option>
-            <option value="professor">Professor</option>
-            <option value="student">Student</option>
-          </select>
+            <br />
 
-          <Button
-            className="m-5 btn btn-success btn-lg text-white"
-            type="submit"
-          >
-            Login
-          </Button>
-        </form>
-      </div>
+            <Select
+              label="Role"
+              labelId="role"
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+            >
+              <MenuItem value="moderator">Moderator</MenuItem>
+              <MenuItem value="college">College</MenuItem>
+              <MenuItem value="professor">Professor</MenuItem>
+              <MenuItem value="student">Student</MenuItem>
+            </Select>
+            <br />
+            <Button variant="contained" type="submit">
+              Login
+            </Button>
+          </form>
+        </div>
+      </Paper>
     </Base>
   );
 };
