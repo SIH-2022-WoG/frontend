@@ -16,6 +16,7 @@ import { Box,  Divider, Drawer,  useMediaQuery,  Toolbar } from '@mui/material';
 // import { Logo } from './logo';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import ArticleIcon from '@mui/icons-material/Article';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import { NavItem } from './nav-item';
 
 const items = [
@@ -30,9 +31,9 @@ const items = [
     title: 'All Submitted Theses'
   },
   {
-    href: '/products',
-    // icon: (<ShoppingBagIcon fontSize="small" />),
-    title: 'Products'
+    href: '/profile',
+    icon: (<AccountBoxIcon fontSize="small" />),
+    title: 'Profile'
   },
   {
     href: '/account',
