@@ -13,9 +13,11 @@ import {
   CardActions
 } from "@mui/material";
 import {grey} from '@mui/material/colors';
+import { Link } from "react-router-dom";
 import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
 import PreviewIcon from '@mui/icons-material/Preview';
 import DownloadIcon from "@mui/icons-material/Download";
+import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import { deepOrange, deepPurple } from "@mui/material/colors";
 import { SeverityPill } from "../components/dashboard/Severitypill";
 
