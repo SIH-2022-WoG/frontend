@@ -117,7 +117,7 @@ export default function Thesis() {
             </Grid>
             <Grid item xl={4} lg={4} sm={4} xs={12}>
               <Stack spacing={2} direction="column">
-                <Card sx={{ textAlign: "center" }} elevation="16">
+                <Card sx={{ textAlign: "center" }} elevation={16}>
                   <CardContent>
                     <Box p={3}>
                       <PictureAsPdfIcon
@@ -142,7 +142,7 @@ export default function Thesis() {
                     </CardActions>
                   </CardContent>
                 </Card>
-                <Card sx={{ textAlign: "center" }} elevation="16">
+                <Card sx={{ textAlign: "center" }} elevation={16}>
                   <CardContent>
                     <Grid container spacing={2}>
                       <Grid item xl={6} lg={6} sm={6} xs={12}>
