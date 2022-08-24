@@ -13,6 +13,7 @@ import AllTheses from "./pages/student/AllTheses"
 import Dashboardmain from "./components/dashboard/dashboard-main"
 import Thesis from "./pages/Thesis";
 import Profile from "./pages/Profile";
+import ViewProfile from "./pages/ViewProfile";
 
 function App() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -30,6 +31,7 @@ function App() {
                 <Route exact path="/theses" element={<Dashboard setSidebarOpen={setSidebarOpen} isSidebarOpen={isSidebarOpen} element={<AllTheses />} />} />
                 <Route exact path="/thesis" element={<Dashboard setSidebarOpen={setSidebarOpen} isSidebarOpen={isSidebarOpen} element={<Thesis />} />} />
                 <Route exact path="/profile" element={<Dashboard setSidebarOpen={setSidebarOpen} isSidebarOpen={isSidebarOpen} element={<Profile />} />} />
+                <Route exact path="/viewprofile" element={<ViewProfile />} />
                 <Route exact path="/login" element={<Login />} />
                 <Route exact path="/signup" element={<Signup />} />
               </Routes>
