@@ -26,6 +26,7 @@ import {
   Select,
   MenuItem,
   Button,
+  Stack,
 } from "@mui/material";
 import { signup, authenticate, isAutheticated } from "../auth/helper";
 
@@ -74,6 +75,7 @@ const Signup = () => {
         <Card elevation={6}>
           <CardContent>
             <form onSubmit={handleSubmit}>
+            <Stack spacing={2} direction="column">
               <FormControl>
                 <TextField
                   id="email"
@@ -128,6 +130,7 @@ const Signup = () => {
                 </Select>
               </FormControl>
               <Button type="submit">Submit</Button>
+              </Stack>
             </form>
           </CardContent>
         </Card>
