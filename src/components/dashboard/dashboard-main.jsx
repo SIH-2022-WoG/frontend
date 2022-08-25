@@ -81,7 +81,7 @@ function Crd() {
   return (
     <Card>
       <CardContent>
-        <Grid container spacing={3} sx={{ justifyContent: "space-between" }}>
+        <Grid container spacing={3} sx={{ justifyContent: "space-around" }}>
           <Grid item>
             <Typography color="textSecondary" gutterBottom variant="overline">
               TOTAL PROFIT
@@ -117,7 +117,7 @@ export default function Dashboard() {
       }}
     >
       <Container maxWidth={false}>
-        <Grid container spacing={3}>
+        <Grid container spacing={2}  sx={{ justifyContent: "space-around" }}>
           <Grid item lg={3} sm={6} xl={3} xs={12}>
             <InfoCard title="No. of thesis" value="val 1" avatarbgcolor="error.main"/>
           </Grid>
@@ -130,7 +130,7 @@ export default function Dashboard() {
           {/* <Grid item xl={3} lg={3} sm={6} xs={12}>
             <InfoCard title="card 1" value="val 1" avatarbgcolor="warning.light"/>
           </Grid> */}
-          <Grid item lg={8} md={12} xl={9} xs={12}>
+          <Grid item lg={12} md={12} xl={9} xs={12}>
             <Submissions data={data} title="Recent Submissions"/>
           </Grid>
           {/* <Grid item lg={4} md={6} xl={3} xs={12}>

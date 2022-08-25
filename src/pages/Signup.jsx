@@ -126,9 +126,6 @@ const Signup = () => {
                   <MenuItem value={"professor"}>Professor</MenuItem>
                   <MenuItem value={"student"}>Student</MenuItem>
                 </Select>
-                {/* <FormHelperText id="password">
-                  Enter your email
-                </FormHelperText> */}
               </FormControl>
               <Button type="submit">Submit</Button>
             </form>
