@@ -1,39 +1,30 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { Card, CardContent, Typography, Grid, Button, Toolbar } from '@mui/material';
+import { Card, CardContent, Typography, Grid, Button, Toolbar, Box } from '@mui/material';
 
 
    
 const Homepage = () => {
     return (
       <div>
-        <section>
-          <div>
-            <div  />
-          </div>
-          <div >
-            <div />
-          </div>
-          <div >
-            <div  />
-          </div>
-        </section>
-        {}
-        <div>
-          {/* <div className={classes.firstbox}> */}
+         
           <Toolbar/>
+          <Grid container spacing={2} sx={{ p:5}}>
+           <Grid item xs={6}>
+           <Box textAlign='center' sx={{ mt: 8, width: 800 }}>
           <Typography 
               sx = {{
                  mt: 4
               }}
-              variant="h2"
+              variant="h1"
                >
               Research Portal
           </Typography>
           <Typography 
            
             sx={{
-              p: 4
+              mt: 4,
+              mb: 4
             }} >
             "Research is formalized curiosity. It is poking and prying with a
             purpose."
@@ -48,7 +39,22 @@ const Homepage = () => {
           >
             Projects
           </Button>
-        </div>
+        </Box>
+        </Grid>
+        <Grid item xs={6}>
+        <Box
+        component="img"
+        sx={{
+          // height: 233,
+          // width: 350,
+          // maxHeight: { xs: 233, md: 167 },
+          // maxWidth: { xs: 350, md: 250 },
+        }}
+        alt="The house from the offer."
+        src= "https://researchportal-dd91a.web.app/static/media/rp_homepage.97202920.svg"
+      />
+        </Grid>
+        </Grid>
         {/* objectives */}
         <div>
           <Typography
