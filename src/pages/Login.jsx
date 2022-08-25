@@ -15,6 +15,7 @@ import {
   FormControl,
   FormHelperText,
   Button,
+  Stack, 
 } from "@mui/material";
 import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
@@ -70,10 +71,11 @@ const Login = () => {
     >
       <Container maxWidth="sm" sx={{ textAlign: "center" }}>
         <Typography variant="h3">Login</Typography>
-        <Card elevation={6}>
+        <Card elevation={6} sx={{mt:4}}>
           <Divider />
           <CardContent>
             <form onSubmit={handleSubmit}>
+              <Stack spacing={2} direction="column">
               <FormControl>
                 <TextField
                   id="email"
@@ -98,7 +100,8 @@ const Login = () => {
                   Enter your password
                 </FormHelperText>
               </FormControl>
-              <Button type="submit">Submit</Button>
+              <Button type="submit" variant="contained">Submit</Button>
+              </Stack>
             </form>
           </CardContent>
         </Card>
