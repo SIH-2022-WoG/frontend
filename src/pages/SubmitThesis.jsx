@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Container,
   Typography,
@@ -12,6 +12,24 @@ import {
 } from "@mui/material";
 
 export default function SubmitThesis() {
+  const [values, setValues] = useState({
+    title: "",
+    desc: "",
+    dept: "",
+    guide: {
+      key: "",
+      name: "",
+    },
+    file: "",
+  });
+
+  const handleChange = (event) => {
+    setValues({
+      ...values,
+      [event.target.name]: event.target.value,
+    });
+  };
+
   return (
     <Container
       sx={{
@@ -31,9 +49,9 @@ export default function SubmitThesis() {
                   // helperText="Please specify the first name"
                   label="Title"
                   name="title"
-                  // onChange={handleChange}
+                  onChange={handleChange}
                   required
-                  // value={values.name}
+                  value={values.title}
                   variant="outlined"
                 />
               </Grid>
@@ -42,10 +60,10 @@ export default function SubmitThesis() {
                   fullWidth
                   multiline
                   label="Description"
-                  name="description"
-                  // onChange={handleChange}
+                  name="desc"
+                  onChange={handleChange}
                   required
-                  // value={values.email}
+                  value={values.desc}
                   variant="outlined"
                 />
               </Grid>
@@ -54,11 +72,11 @@ export default function SubmitThesis() {
                   fullWidth
                   label="Department"
                   name="dept"
-                  // onChange={handleChange}
+                  onChange={handleChange}
                   required
                   select
                   SelectProps={{ native: true }}
-                  // value={values.state}
+                  value={values.dept}
                   variant="outlined"
                 >
                   {/* {states.map((option) => (
@@ -71,24 +89,13 @@ export default function SubmitThesis() {
               <Grid item md={6} xs={12}>
                 <TextField
                   fullWidth
-                  label="Institute"
-                  name="institute"
-                  // onChange={handleChange}
-                  type="text"
-                  // value={values.institute}
-                  variant="outlined"
-                />
-              </Grid>
-              <Grid item md={6} xs={12}>
-                <TextField
-                  fullWidth
                   label="Guide"
                   name="guide"
-                  // onChange={handleChange}
+                  onChange={handleChange}
                   required
                   select
                   SelectProps={{ native: true }}
-                  // value={values.state}
+                  value={values.guide}
                   variant="outlined"
                 >
                   {/* {states.map((option) => (
@@ -101,11 +108,11 @@ export default function SubmitThesis() {
               <Grid item md={6} xs={12}>
                 <Input
                   fullWidth
-                  label="CGPA"
-                  name="cgpa"
-                  // onChange={handleChange}
+                  label="File"
+                  name="file"
+                  onChange={handleChange}
                   type="file"
-                  // value={values.cgpa}
+                  value={values.file}
                   variant="outlined"
                 />
               </Grid>
