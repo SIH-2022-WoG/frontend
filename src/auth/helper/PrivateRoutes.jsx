@@ -1,6 +1,16 @@
 import { Navigate, Outlet } from "react-router-dom";
-const PrivateRoutes = () => {
-  let auth = { token: true };
+
+export const StudentRoutes = () => {
+  let auth = { token: false };
   return auth.token ? <Outlet /> : <Navigate to="/login" />;
 };
-export default PrivateRoutes;
+
+export const ModRoutes = () => {
+  let modAuth = { token: false };
+  return modAuth.token ? <Outlet /> : <Navigate to="/login" />;
+};
+
+export const ProfRoutes = () => {
+  let profAuth = { token: false };
+  return profAuth.token ? <Outlet /> : <Navigate to="/login" />;
+};

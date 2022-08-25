@@ -9,36 +9,57 @@ import {
   Container,
   Card,
   CardContent,
-  CardHeader,
   Divider,
   Typography,
   TextField,
   FormControl,
-  Input,
-  InputLabel,
-  FormHelperText, 
-  Button  
+  FormHelperText,
+  Button,
 } from "@mui/material";
 import React, { useState } from "react";
-// import { Button } from "react-bootstrap";
-import Base from "../components/Base";
+import { Navigate } from "react-router-dom";
+import { signin, authenticate, isAutheticated } from "../auth/helper";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("student");
+  const [redirect, setRedirect] = useState(false);
+  const [role, setrole] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const user = { email, password, role };
+    const user = { email, password };
+    signin(user).then((data) => {
+      if (data.error) {
+        console.log(data.error);
+      } else {
+        authenticate(data, () => {
+          console.log("authenticated");
+        }).catch(console.log("signin request failed"));
+        setEmail("");
+        setPassword("");
+      }
+    });
     console.log(user);
   };
+
+  // const performRedirect = () => {
+  //   if (redirect) {
+  //     if (user && user.role === 1) {
+  //       return <Navigate to="/admin/dashboard" />;
+  //     } else {
+  //       return <Navigate to="/user/dashboard" />;
+  //     }
+  //   }
+  //   if (isAutheticated()) {
+  //     return <Navigate to="/" />;
+  //   }
+  // };
 
   return (
     <Box
       component="main"
       sx={{
-        flexGrow: 1,
         py: 4,
         pt: 10,
         pb: 5,
@@ -53,19 +74,29 @@ const Login = () => {
           <Divider />
           <CardContent>
             <form onSubmit={handleSubmit}>
-              <FormControl fullwidth>
-                <InputLabel htmlFor="email">Email address</InputLabel>
-                <TextField id="email" aria-describedby="email" variant="outlined"/>
-                <FormHelperText id="email">
-                  Enter your email
-                </FormHelperText>
+              <FormControl>
+                <TextField
+                  id="email"
+                  aria-describedby="email"
+                  label="email"
+                  variant="outlined"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <FormHelperText id="email">Enter your email</FormHelperText>
               </FormControl>
-              <FormControl fullwidth>
-                <InputLabel htmlFor="password">Password address</InputLabel>
-                <TextField id="password" aria-describedby="password" variant="outlined"/>
-                {/* <FormHelperText id="password">
-                  Enter your email
-                </FormHelperText> */}
+              <FormControl>
+                <TextField
+                  id="password"
+                  label="password"
+                  aria-describedby="password"
+                  variant="outlined"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <FormHelperText id="password">
+                  Enter your password
+                </FormHelperText>
               </FormControl>
               <Button type="submit">Submit</Button>
             </form>

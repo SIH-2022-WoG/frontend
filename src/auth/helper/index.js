@@ -1,7 +1,7 @@
 import { API } from "../../backend";
 
 export const signup = (user) => {
-  return fetch(`${API}/signup`, {
+  return fetch(`${API}user/prl/signup`, {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -16,7 +16,7 @@ export const signup = (user) => {
 };
 
 export const signin = (user) => {
-  return fetch(`${API}/signin`, {
+  return fetch(`${API}user/prl/login`, {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -32,7 +32,7 @@ export const signin = (user) => {
 
 export const authenticate = (data, next) => {
   if (typeof window !== "undefined") {
-    localStorage.setItem("jwt", JSON.stringify(data));
+    localStorage.setItem("jwt", JSON.stringify(data.token));
     next();
   }
 };

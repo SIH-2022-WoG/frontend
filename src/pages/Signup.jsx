@@ -10,7 +10,6 @@
 // - student
 
 import React, { useState } from "react";
-import Base from "../components/Base";
 import {
   Box,
   Container,
@@ -28,7 +27,7 @@ import {
   MenuItem,
   Button,
 } from "@mui/material";
-import { API } from "../backend";
+import { signup, authenticate, isAutheticated } from "../auth/helper";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -40,13 +39,21 @@ const Signup = () => {
     e.preventDefault();
     const user = { email, password, passwordConfirm: confirmPassword, group };
     console.log(user);
-    fetch(API + "/user/prl/signup", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(user),
-    })
-      .then((res) => () => console.log(res.json()))
-      .catch((err) => console.log(err));
+    signup(user)
+      .then((data) => {
+        if (data.error) {
+          console.log(data.error);
+        } else {
+          console.log(data);
+          setEmail("");
+          setPassword("");
+          setConfirmPassword("");
+          setGroup("student");
+        }
+      })
+      .catch((err) => {
+        console.log("Login not working : ", err);
+      });
   };
 
   return (
@@ -67,21 +74,21 @@ const Signup = () => {
         <Card elevation={6}>
           <CardContent>
             <form onSubmit={handleSubmit}>
-              <FormControl fullwidth>
-                <InputLabel htmlFor="email">Email address</InputLabel>
+              <FormControl>
                 <TextField
                   id="email"
+                  label="email"
                   aria-describedby="email"
                   variant="outlined"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
-                <FormHelperText id="email">Enter your email</FormHelperText>
+                <FormHelperText id="email"> </FormHelperText>
               </FormControl>
-              <FormControl fullwidth>
-                <InputLabel htmlFor="password">Password</InputLabel>
+              <FormControl>
                 <TextField
                   id="password"
+                  label="password"
                   aria-describedby="password"
                   type="password"
                   variant="outlined"
@@ -92,12 +99,10 @@ const Signup = () => {
                   Enter your email
                 </FormHelperText> */}
               </FormControl>
-              <FormControl fullwidth>
-                <InputLabel htmlFor="confirmpassword">
-                  Confirm password
-                </InputLabel>
+              <FormControl>
                 <TextField
                   id="confirmpassword"
+                  label="confirm password"
                   aria-describedby="confirm password"
                   type="password"
                   variant="outlined"
@@ -114,16 +119,13 @@ const Signup = () => {
                   labelId="group"
                   id="group"
                   value={group}
-                  label="Group"
+                  label="group"
                   onChange={(e) => setGroup(e.target.value)}
                 >
                   <MenuItem value={"moderator"}>Moderator</MenuItem>
                   <MenuItem value={"professor"}>Professor</MenuItem>
                   <MenuItem value={"student"}>Student</MenuItem>
                 </Select>
-                {/* <FormHelperText id="password">
-                  Enter your email
-                </FormHelperText> */}
               </FormControl>
               <Button type="submit">Submit</Button>
             </form>
