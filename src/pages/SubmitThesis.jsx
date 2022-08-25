@@ -16,12 +16,14 @@ export default function SubmitThesis() {
     title: "",
     desc: "",
     dept: "",
-    guide: {
-      key: "",
-      name: "",
-    },
+    guide: {},
     file: "",
   });
+
+  const guide = {
+    key: "62fbbff369879cc5166cf5ae" ,
+    name: "Monika Gupta"
+  }
 
   const handleChange = (event) => {
     setValues({
@@ -98,11 +100,11 @@ export default function SubmitThesis() {
                   value={values.guide}
                   variant="outlined"
                 >
-                  {/* {states.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
+                  {/* {states.map((option) => ( */}
+                  <option key={guide.key} value={guide}>
+                    {guide.name}
                   </option>
-                ))} */}
+                {/* ))} */}
                 </TextField>
               </Grid>
               <Grid item md={6} xs={12}>
