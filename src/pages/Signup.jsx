@@ -27,7 +27,7 @@ import {
   Select,
   MenuItem,
 } from "@mui/material";
-import { backend } from "../backend";
+import { API } from "../backend";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -39,7 +39,7 @@ const Signup = () => {
     e.preventDefault();
     const user = { email, password, passwordConfirm: confirmPassword, group };
     console.log(user);
-    fetch(backend + "/user/prl/signup", {
+    fetch(API + "/user/prl/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user),
@@ -73,7 +73,7 @@ const Signup = () => {
                   aria-describedby="email"
                   variant="outlined"
                   value={email}
-                  onChange={(e)=>setEmail(e.target.value)}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
                 <FormHelperText id="email">Enter your email</FormHelperText>
               </FormControl>
@@ -85,21 +85,23 @@ const Signup = () => {
                   type="password"
                   variant="outlined"
                   value={password}
-                  onChange={(e)=>setPassword(e.target.value)}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
                 {/* <FormHelperText id="password">
                   Enter your email
                 </FormHelperText> */}
               </FormControl>
               <FormControl fullwidth>
-                <InputLabel htmlFor="confirmpassword">Confirm password</InputLabel>
+                <InputLabel htmlFor="confirmpassword">
+                  Confirm password
+                </InputLabel>
                 <TextField
                   id="confirmpassword"
                   aria-describedby="confirm password"
                   type="password"
                   variant="outlined"
                   value={confirmPassword}
-                  onChange={(e)=>setConfirmPassword(e.target.value)}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
                 />
                 {/* <FormHelperText id="password">
                   Enter your email
@@ -112,11 +114,11 @@ const Signup = () => {
                   id="group"
                   value={group}
                   label="Group"
-                  onChange={(e)=>setGroup(e.target.value)}
+                  onChange={(e) => setGroup(e.target.value)}
                 >
-                  <MenuItem value={1}>Moderator</MenuItem>
-                  <MenuItem value={2}>Professor</MenuItem>
-                  <MenuItem value={3}>Student</MenuItem>
+                  <MenuItem value={"moderator"}>Moderator</MenuItem>
+                  <MenuItem value={"professor"}>Professor</MenuItem>
+                  <MenuItem value={"student"}>Student</MenuItem>
                 </Select>
                 {/* <FormHelperText id="password">
                   Enter your email
