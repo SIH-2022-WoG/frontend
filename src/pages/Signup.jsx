@@ -26,6 +26,7 @@ import {
   FormHelperText,
   Select,
   MenuItem,
+  Button,
 } from "@mui/material";
 import { API } from "../backend";
 
@@ -124,6 +125,7 @@ const Signup = () => {
                   Enter your email
                 </FormHelperText> */}
               </FormControl>
+              <Button type="submit">Submit</Button>
             </form>
           </CardContent>
         </Card>

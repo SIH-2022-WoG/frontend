@@ -1,9 +1,21 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 // import Link from 'next/link';
 // import { useRouter } from 'next/router';
-import PropTypes from 'prop-types';
-import { Box, Button, Divider, Drawer, Typography, useMediaQuery, Link, Toolbar } from '@mui/material';
-import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import PropTypes from "prop-types";
+import {
+  Box,
+  Button,
+  Divider,
+  Drawer,
+  Typography,
+  useMediaQuery,
+  Link,
+  Toolbar,
+  Card,
+  Icon,
+  Stack,
+} from "@mui/material";
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 // import { ChartBar as ChartBarIcon } from '@mui/icons-material';
 // import { Cog as CogIcon } from '../icons/cog';
 // import { Lock as LockIcon } from '../icons/lock';
@@ -14,60 +26,36 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 // import { Users as UsersIcon } from '../icons/users';
 // import { XCircle as XCircleIcon } from '../icons/x-circle';
 // import { Logo } from './logo';
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import ArticleIcon from '@mui/icons-material/Article';
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
-import { NavItem } from './nav-item';
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import ArticleIcon from "@mui/icons-material/Article";
+import AccountBoxIcon from "@mui/icons-material/AccountBox";
+import AddIcon from "@mui/icons-material/Add";
+import { NavItem } from "./nav-item";
 
 const items = [
   {
-    href: '/dashboard',
-    icon: (<DashboardIcon fontSize="small" />),
-    title: 'Dashboard'
+    href: "/dashboard",
+    icon: <DashboardIcon fontSize="small" />,
+    title: "Dashboard",
   },
   {
-    href: '/theses',
-    icon: (<ArticleIcon fontSize="small" />),
-    title: 'All Submitted Theses'
+    href: "/theses",
+    icon: <ArticleIcon fontSize="small" />,
+    title: "All Submitted Theses",
   },
   {
-    href: '/profile',
-    icon: (<AccountBoxIcon fontSize="small" />),
-    title: 'Profile'
+    href: "/profile",
+    icon: <AccountBoxIcon fontSize="small" />,
+    title: "Profile",
   },
-  {
-    href: '/account',
-    // icon: (<UserIcon fontSize="small" />),
-    title: 'Account'
-  },
-  {
-    href: '/settings',
-    // icon: (<CogIcon fontSize="small" />),
-    title: 'Settings'
-  },
-  {
-    href: '/login',
-    // icon: (<LockIcon fontSize="small" />),
-    title: 'Login'
-  },
-  {
-    href: '/register',
-    // icon: (<UserAddIcon fontSize="small" />),
-    title: 'Register'
-  },
-  {
-    href: '/404',
-    // icon: (<XCircleIcon fontSize="small" />),
-    title: 'Error'
-  }
 ];
 
 export const DashboardSidebar = (props) => {
   const { open, onClose } = props;
-//   const router = useRouter();
-  const lgUp = useMediaQuery((theme) => theme.breakpoints.up('lg'), {
+  //   const router = useRouter();
+  const lgUp = useMediaQuery((theme) => theme.breakpoints.up("lg"), {
     defaultMatches: true,
-    noSsr: false
+    noSsr: false,
   });
 
   // useEffect(
@@ -88,12 +76,22 @@ export const DashboardSidebar = (props) => {
     <>
       <Box
         sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          height: '100%'
+          display: "flex",
+          flexDirection: "column",
+          height: "100%",
         }}
       >
-      <Toolbar />
+        <Toolbar />
+        <Box px={2} mb={4}>
+          <Button sx={{px: 4,
+                py: 2,backgroundColor: "neutral.700",
+                color: "#FFFFFF",}}>
+              <Stack direction="row" gap={2}>
+                <AddIcon />
+                <Typography>Upload Thesis</Typography>
+              </Stack>
+          </Button>
+        </Box>
         <Box sx={{ flexGrow: 1 }}>
           {items.map((item) => (
             <NavItem
@@ -104,7 +102,7 @@ export const DashboardSidebar = (props) => {
             />
           ))}
         </Box>
-        <Divider sx={{ borderColor: '#2D3748' }} />
+        <Divider sx={{ borderColor: "#2D3748" }} />
       </Box>
     </>
   );
@@ -116,15 +114,15 @@ export const DashboardSidebar = (props) => {
         open
         PaperProps={{
           sx: {
-            backgroundColor: 'neutral.900',
-            color: '#FFFFFF',
-            width: 280
-          }
+            backgroundColor: "neutral.900",
+            color: "#FFFFFF",
+            width: 280,
+          },
         }}
         variant="permanent"
       >
         <Toolbar />
-      <Divider />
+        <Divider />
         {content}
       </Drawer>
     );
@@ -137,15 +135,15 @@ export const DashboardSidebar = (props) => {
       open={open}
       PaperProps={{
         sx: {
-          backgroundColor: 'neutral.900',
-          color: '#FFFFFF',
-          width: 280
-        }
+          backgroundColor: "neutral.900",
+          color: "#FFFFFF",
+          width: 280,
+        },
       }}
       sx={{ zIndex: (theme) => theme.zIndex.appBar + 100 }}
       variant="temporary"
     >
-    <Toolbar />
+      <Toolbar />
       <Divider />
       {content}
     </Drawer>
@@ -154,5 +152,5 @@ export const DashboardSidebar = (props) => {
 
 DashboardSidebar.propTypes = {
   onClose: PropTypes.func,
-  open: PropTypes.bool
+  open: PropTypes.bool,
 };
