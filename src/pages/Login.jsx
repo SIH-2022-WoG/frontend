@@ -30,18 +30,22 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const user = { email, password };
-    signin(user).then((data) => {
-      if (data.error) {
-        console.log(data.error);
-      } else {
-        authenticate(data, () => {
-          console.log("authenticated");
-        }).catch(console.log("signin request failed"));
-        setEmail("");
-        setPassword("");
-      }
-    });
-    console.log(user);
+    signin(user)
+      .then((data) => {
+        if (data.error) {
+          console.log(data.error);
+        } else {
+          console.log(data);
+          setEmail("");
+          setPassword("");
+          authenticate(data, () => {
+            console.log("user is now authenticated");
+          });
+        }
+      })
+      .catch((err) => {
+        console.log("Login not working : ", err);
+      });
   };
 
   // const performRedirect = () => {

@@ -33,6 +33,8 @@ export const signin = (user) => {
 export const authenticate = (data, next) => {
   if (typeof window !== "undefined") {
     localStorage.setItem("jwt", JSON.stringify(data.token));
+    localStorage.setItem("_id", JSON.stringify(data.user.childId));
+    localStorage.setItem("group", JSON.stringify(data.user.groupd));
     next();
   }
 };
@@ -52,11 +54,24 @@ export const signout = (next) => {
 
 export const isAutheticated = () => {
   if (typeof window == "undefined") {
-    return false;
+    return "";
   }
   if (localStorage.getItem("jwt")) {
+    console.log(JSON.parse(localStorage.getItem("jwt")));
+
     return JSON.parse(localStorage.getItem("jwt"));
   } else {
-    return false;
+    return "";
+  }
+};
+
+export const DetermineGroup = () => {
+  if (typeof window == "undefined") {
+    return "";
+  }
+  if (localStorage.getItem("group")) {
+    return JSON.parse(localStorage.getItem("group"));
+  } else {
+    return "";
   }
 };

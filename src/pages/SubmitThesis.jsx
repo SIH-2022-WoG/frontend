@@ -8,13 +8,13 @@ import {
   TextField,
   Input,
   Button,
-  CardActions
+  CardActions,
 } from "@mui/material";
 
 export default function SubmitThesis() {
   const [values, setValues] = useState({
     title: "",
-    desc: "",
+    abstract: "",
     dept: "",
     guide: {},
     file: "",
@@ -42,8 +42,8 @@ export default function SubmitThesis() {
         Submit thesis
       </Typography>
       <Card>
-          <form>
-        <CardContent>
+        <form>
+          <CardContent>
             <Grid container spacing={3}>
               <Grid item md={12} xs={12}>
                 <TextField
@@ -61,11 +61,11 @@ export default function SubmitThesis() {
                 <TextField
                   fullWidth
                   multiline
-                  label="Description"
-                  name="desc"
+                  label="Abstract"
+                  name="abstract"
                   onChange={handleChange}
                   required
-                  value={values.desc}
+                  value={values.abstract}
                   variant="outlined"
                 />
               </Grid>
@@ -119,13 +119,13 @@ export default function SubmitThesis() {
                 />
               </Grid>
             </Grid>
-        </CardContent>
-        <CardActions sx={{justifyContent: "flex-end", p: 2}}>
-          <Button type="submit" variant="contained">
-            Submit
-          </Button>
-        </CardActions>
-          </form>
+          </CardContent>
+          <CardActions sx={{ justifyContent: "flex-end", p: 2 }}>
+            <Button type="submit" variant="contained">
+              Submit
+            </Button>
+          </CardActions>
+        </form>
       </Card>
     </Container>
   );
