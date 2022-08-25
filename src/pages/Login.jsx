@@ -16,7 +16,8 @@ import {
   FormControl,
   Input,
   InputLabel,
-  FormHelperText  
+  FormHelperText, 
+  Button  
 } from "@mui/material";
 import React, { useState } from "react";
 // import { Button } from "react-bootstrap";
@@ -66,6 +67,7 @@ const Login = () => {
                   Enter your email
                 </FormHelperText> */}
               </FormControl>
+              <Button type="submit">Submit</Button>
             </form>
           </CardContent>
         </Card>
