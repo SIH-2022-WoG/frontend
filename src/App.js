@@ -15,9 +15,13 @@ import Thesis from "./pages/Thesis";
 import Profile from "./pages/Profile";
 import ViewProfile from "./pages/ViewProfile";
 import SubmitThesis from "./pages/SubmitThesis";
-import Search from "./pages/Search"
+import Search from "./pages/Search";
 import Homepage from "./pages/Homepage";
-import {StudentRoutes,ProfRoutes,ModRoutes} from "./auth/helper/PrivateRoutes";
+import {
+  StudentRoutes,
+  ProfRoutes,
+  ModRoutes,
+} from "./auth/helper/PrivateRoutes";
 
 function App() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -29,31 +33,66 @@ function App() {
           <Base setSidebarOpen={setSidebarOpen} isSidebarOpen={isSidebarOpen}>
             <Router>
               <Routes>
-              <Route exact path="/" element={<Homepage />} />
-              <Route path="/dashboard" element={<Dashboard setSidebarOpen={setSidebarOpen} isSidebarOpen={isSidebarOpen} element={<Dashboardmain />} />} />
-              <Route exact path="/search" element={<Search />} />
-              <Route exact path="/theses" element={<Dashboard setSidebarOpen={setSidebarOpen} isSidebarOpen={isSidebarOpen} element={<AllTheses />} />} />
-              <Route exact path="/thesis" element={<Dashboard setSidebarOpen={setSidebarOpen} isSidebarOpen={isSidebarOpen} element={<Thesis />} />} />
-              <Route exact path="/profile" element={<Dashboard setSidebarOpen={setSidebarOpen} isSidebarOpen={isSidebarOpen} element={<Profile />} />} />
+                <Route exact path="/" element={<Homepage />} />
+                <Route
+                  path="/dashboard"
+                  element={
+                    <Dashboard
+                      setSidebarOpen={setSidebarOpen}
+                      isSidebarOpen={isSidebarOpen}
+                      element={<Dashboardmain />}
+                    />
+                  }
+                />
+                <Route exact path="/search" element={<Search />} />
+                <Route
+                  exact
+                  path="/theses"
+                  element={
+                    <Dashboard
+                      setSidebarOpen={setSidebarOpen}
+                      isSidebarOpen={isSidebarOpen}
+                      element={<AllTheses />}
+                    />
+                  }
+                />
+                <Route
+                  exact
+                  path="/thesis"
+                  element={
+                    <Dashboard
+                      setSidebarOpen={setSidebarOpen}
+                      isSidebarOpen={isSidebarOpen}
+                      element={<Thesis />}
+                    />
+                  }
+                />
+                <Route
+                  exact
+                  path="/profile"
+                  element={
+                    <Dashboard
+                      setSidebarOpen={setSidebarOpen}
+                      isSidebarOpen={isSidebarOpen}
+                      element={<Profile />}
+                    />
+                  }
+                />
                 <Route exact path="/viewprofile" element={<ViewProfile />} />
                 <Route exact path="/submit" element={<SubmitThesis />} />
                 <Route exact path="/login" element={<Login />} />
                 <Route exact path="/signup" element={<Signup />} />
                 <Route element={<StudentRoutes />}>
-                  <Route path="/student" element={<Profile />} />
-                 
+                  <Route exact path="/student" element={<Profile />} />
                 </Route>
 
                 <Route element={<ProfRoutes />}>
-                  <Route path="/prof" element={<Profile />} />
-                  
+                  <Route exact path="/prof" element={<Profile />} />
                 </Route>
 
                 <Route element={<ModRoutes />}>
-                  <Route path="/mod" element={<Profile />} />
-                 
+                  <Route exact path="/mod" element={<Profile />} />
                 </Route>
-
               </Routes>
             </Router>
           </Base>
