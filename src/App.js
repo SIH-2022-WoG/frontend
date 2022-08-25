@@ -14,6 +14,7 @@ import Dashboardmain from "./components/dashboard/dashboard-main"
 import Thesis from "./pages/Thesis";
 import Profile from "./pages/Profile";
 import ViewProfile from "./pages/ViewProfile";
+import SubmitThesis from "./pages/SubmitThesis";
 
 function App() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -32,6 +33,7 @@ function App() {
                 <Route exact path="/thesis" element={<Dashboard setSidebarOpen={setSidebarOpen} isSidebarOpen={isSidebarOpen} element={<Thesis />} />} />
                 <Route exact path="/profile" element={<Dashboard setSidebarOpen={setSidebarOpen} isSidebarOpen={isSidebarOpen} element={<Profile />} />} />
                 <Route exact path="/viewprofile" element={<ViewProfile />} />
+                <Route exact path="/submit" element={<SubmitThesis />} />
                 <Route exact path="/login" element={<Login />} />
                 <Route exact path="/signup" element={<Signup />} />
               </Routes>
