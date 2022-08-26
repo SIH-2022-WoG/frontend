@@ -9,7 +9,8 @@
 // - professor
 // - student
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Box,
   Container,
@@ -35,6 +36,7 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [group, setGroup] = useState("student");
+  const [LoggedIn, setLoggedIn] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -50,12 +52,21 @@ const Signup = () => {
           setPassword("");
           setConfirmPassword("");
           setGroup("student");
+          setLoggedIn(true);
         }
       })
       .catch((err) => {
         console.log("Login not working : ", err);
       });
   };
+
+  let navigate = useNavigate();
+
+  useEffect(() => {
+    if (LoggedIn) {
+      return navigate("/login");
+    }
+  }, [LoggedIn]);
 
   return (
     <Box
