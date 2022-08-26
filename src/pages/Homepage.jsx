@@ -1,7 +1,31 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { Card, CardContent, Typography, Grid, Button, Toolbar, Box } from '@mui/material';
+import { Card, CardContent, Typography, Grid, Button, Toolbar, Box, Container } from '@mui/material';
+import { v4 as uuid } from "uuid";
+import { Submissions } from "../components/dashboard/Table";
 
+const data = [
+  {
+    id: uuid(),
+    ref: "Dr. John Smith",
+    amount: 30.5,
+    customer: {
+      name: "Lorem Ipsum Dolor sit amet, consectetur adipiscing elit",
+    },
+    createdAt: 1555016400000,
+    status: "approval pending",
+  },
+  {
+    id: uuid(),
+    ref: "CDD1048",
+    amount: 25.1,
+    customer: {
+      name: "Cao Yu",
+    },
+    createdAt: 1555016400000,
+    status: "approved",
+  }
+]
 
    
 const Homepage = () => {
@@ -37,7 +61,7 @@ const Homepage = () => {
             color="primary"
             variant="contained"
           >
-            Projects
+           SIGN UP
           </Button>
         </Box>
         </Grid>
@@ -57,15 +81,14 @@ const Homepage = () => {
         </Grid>
         {/* objectives */}
         <div>
-          <Typography
+          {/* <Typography
             gutterBottom
-            variant="h3"
-            component="h2"
-         
+            variant="h2"
+            sx={{ ml: 4}}  
           >
-            Our Objectives
-          </Typography>
-          <Grid container align="center" >
+          Our Objectives
+          </Typography> */}
+          <Grid container align="center" sx={{p:4}} spacing={10} >
             <Grid item lg={3}>
               <Card elevation={5} >
                 <CardContent>
@@ -75,17 +98,16 @@ const Homepage = () => {
                     component="h2"
                  
                   >
-                    #1
+                    Val1
                   </Typography>
                   <Typography
-                    variant="body2"
+                    variant="h4"
                     color="textSecondary"
                     component="p"
                     align="center"
                   
                   >
-                    To encourage Research and Development and let them explore the
-                    vast field of their interst.
+                   Theses
                   </Typography>
                 </CardContent>
               </Card>
@@ -99,17 +121,16 @@ const Homepage = () => {
                     component="h2"
                  
                   >
-                    #2
+                    Val2
                   </Typography>
                   <Typography
                     align="center"
-                    variant="body2"
+                    variant="h4"
                     color="textSecondary"
                     component="p"
                  
                   >
-                    To let students accross the country gain rich experience and
-                    exposure in research field.
+                   Researchers
                   </Typography>
                 </CardContent>
               </Card>
@@ -123,17 +144,16 @@ const Homepage = () => {
                     component="h2"
                    
                   >
-                    #3
+                    Val 3
                   </Typography>
                   <Typography
                     align="center"
-                    variant="body2"
+                    variant="h4"
                     color="textSecondary"
                     component="p"
                      
                   >
-                    To enhance your Management Skills and interpretation of
-                    results accurately.
+                    Colleges
                   </Typography>
                 </CardContent>
               </Card>
@@ -147,17 +167,16 @@ const Homepage = () => {
                     component="h2"
                     
                   >
-                    #4
+                    Val 4
                   </Typography>
                   <Typography
                     align="center"
-                    variant="body2"
+                    variant="h4"
                     color="textSecondary"
                     component="p"
                     
                   >
-                    Gives you an exposure and an oppurtunity to understand the
-                    research process, to integrate theory into practice.
+                    Guides
                   </Typography>
                 </CardContent>
               </Card>
@@ -166,7 +185,11 @@ const Homepage = () => {
         </div>
         <div>
           <div >
-            <Grid container direction="row" alignItems="flex-start">
+            <Grid container direction="row" alignItems="flex-start"  
+             sx={{
+             
+              
+              border: "1px solid red"}}>
               <Grid
                 align="center"
                 item
@@ -174,9 +197,19 @@ const Homepage = () => {
                 md={6}
               
               >
-                <CardContent>
+             <Container
+                    sx={{
+                      width: 2000
+                   }}
+              >
+             {/* <Typography sx={{ mb: 3 }} variant="h4">
+                 Our top colleges
+             </Typography> */}
+             <Submissions data={data} title="Our top ten colleges" viewAll={false} />
+             </Container>
+                {/* <CardContent>
                   <Typography component="h2" variant="h4" gutterBottom>
-                    Director&apos;s Message
+                    About Us
                   </Typography>
                   <Typography variant="subtitle1" color="textSecondary">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
@@ -188,7 +221,7 @@ const Homepage = () => {
                     corrupti provident eaque eius reprehenderit praesentium quasi
                     quod aliquid?
                   </Typography>
-                </CardContent>
+                </CardContent> */}
               </Grid>
             </Grid>
           </div>
