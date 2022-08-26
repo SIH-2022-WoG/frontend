@@ -185,11 +185,9 @@ const Homepage = () => {
         </div>
         <div>
           <div >
-            <Grid container direction="row" alignItems="flex-start"  
-             sx={{
-             
-              
-              border: "1px solid red"}}>
+            <Grid sx={{ p: 4}}container direction="row" alignItems="flex-start" > 
+  
+              <Grid md={3}></Grid>
               <Grid
                 align="center"
                 item
@@ -197,11 +195,7 @@ const Homepage = () => {
                 md={6}
               
               >
-             <Container
-                    sx={{
-                      width: 2000
-                   }}
-              >
+             <Container  >
              {/* <Typography sx={{ mb: 3 }} variant="h4">
                  Our top colleges
              </Typography> */}
