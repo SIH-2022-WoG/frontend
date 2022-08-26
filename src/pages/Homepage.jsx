@@ -57,7 +57,7 @@ const Homepage = () => {
             size="large"
             
             component={Link}
-            to="/projects"
+            to="/signup"
             color="primary"
             variant="contained"
           >
@@ -98,7 +98,7 @@ const Homepage = () => {
                     component="h2"
                  
                   >
-                    Val1
+                    2
                   </Typography>
                   <Typography
                     variant="h4"
@@ -121,7 +121,7 @@ const Homepage = () => {
                     component="h2"
                  
                   >
-                    Val2
+                    4
                   </Typography>
                   <Typography
                     align="center"
@@ -144,7 +144,7 @@ const Homepage = () => {
                     component="h2"
                    
                   >
-                    Val 3
+                    6
                   </Typography>
                   <Typography
                     align="center"
@@ -167,7 +167,7 @@ const Homepage = () => {
                     component="h2"
                     
                   >
-                    Val 4
+                    3
                   </Typography>
                   <Typography
                     align="center"

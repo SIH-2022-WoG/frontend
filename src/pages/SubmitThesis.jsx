@@ -173,6 +173,12 @@ export default function SubmitThesis() {
                   <option key="electrical" value="Electrical">
                     Electrical
                   </option>
+                  <option key="medicine" value="Medicine">
+                    Medicine
+                  </option>
+                  <option key="IT" value="IT">
+                    IT
+                  </option>
                   {/* ))} */}
                 </TextField>
               </Grid>
