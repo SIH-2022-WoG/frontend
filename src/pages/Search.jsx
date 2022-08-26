@@ -15,6 +15,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import { create } from "@mui/material/styles/createTransitions";
+import axios from "axios";
 import SearchThesisTable from "../components/search/SearchThesisTable";
 import SearchPeopleTable from "../components/search/SearchPeopleTable";
 import SearchCollegeTable from "../components/search/SearchCollegeTable";
@@ -64,6 +65,14 @@ export default function Search() {
   const [List, setList] = useState([]);
   const [filter, setFilter] = useState(10);
   const [sort, setSort] = useState(10);
+
+  function match(text){
+    axios.get(`https://plagiarismchecker22.herokuapp.com/plagiarism/search/partial?text=${text}`)
+    .then((response) => {
+      // if()
+      // response.percentage
+    })
+  }
 
   return (
     <Container
@@ -140,3 +149,5 @@ export default function Search() {
     </Container>
   );
 }
+
+// https://plagiarismchecker22.herokuapp.com/plagiarism/search?text=abcd
