@@ -101,7 +101,7 @@ export default function SubmitThesis() {
           .then((response) => {
             console.log("txturl: ", txtUrl);
             console.log(response)
-
+            localStorage.setItem("thesis", response.data.data._id);
             axios
               .post(
                 `https://mainserver22.herokuapp.com/thesis/evaluate?id=${response.data.data._id}&lang=0`,

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {
   Card,
   CardContent,
@@ -22,12 +22,30 @@ import { deepOrange, deepPurple } from "@mui/material/colors";
 import { SeverityPill } from "../components/dashboard/Severitypill";
 
 export default function Thesis() {
+  
+  const [data, setdata] = useState();
+
+  useEffect(()=>{
+      fetch(`https://mainserver22.herokuapp.com/thesis/viewOne?id=${localStorage.getItem('thesis')}`, 
+      {
+      method:"GET",
+      headers : {
+        "Content-Type" : "application/json",
+      }
+    })
+      .then((response)=>{
+        setdata(response.data);
+        console.log(data)
+      })
+    }, [])
+
   return (
     <Container
       sx={{
         py: 8,
       }}
     >
+    {console.log(data)}
       {/* <Typography sx={{ mb: 3 }} variant="h4">
         Thesis
       </Typography> */}
