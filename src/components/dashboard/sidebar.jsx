@@ -16,6 +16,7 @@ import {
   Stack,
 } from "@mui/material";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import { Link as Lk } from "react-router-dom";
 // import { ChartBar as ChartBarIcon } from '@mui/icons-material';
 // import { Cog as CogIcon } from '../icons/cog';
 // import { Lock as LockIcon } from '../icons/lock';
@@ -83,6 +84,7 @@ export const DashboardSidebar = (props) => {
       >
         <Toolbar />
         <Box px={2} mb={4}>
+        <Lk to="/submit">
           <Button sx={{px: 4,
                 py: 2,backgroundColor: "neutral.700",
                 color: "#FFFFFF",}}>
@@ -91,6 +93,7 @@ export const DashboardSidebar = (props) => {
                 <Typography>Upload Thesis</Typography>
               </Stack>
           </Button>
+          </Lk>
         </Box>
         <Box sx={{ flexGrow: 1 }}>
           {items.map((item) => (

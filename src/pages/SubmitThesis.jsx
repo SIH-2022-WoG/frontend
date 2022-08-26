@@ -19,8 +19,8 @@ export default function SubmitThesis() {
   // const [txtFileId, setTxtFileId] = useState("");
 
   const [values, setValues] = useState({
-    title: "dhdhergerh",
-    abstract: "bflbwflw fwh fow  hfwo",
+    title: "Ayurvedik research on Siddha",
+    abstract: "Lorem Ipsum Dolor sit amet, consectetur adipiscing elit",
     branch: "Electrical",
     guides: [
       {
