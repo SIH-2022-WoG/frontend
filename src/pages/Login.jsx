@@ -16,8 +16,8 @@ import {
   FormHelperText,
   Button,
 } from "@mui/material";
-import React, { useState } from "react";
-import { Navigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { signin, authenticate, isAutheticated } from "../auth/helper";
 
 const Login = () => {
@@ -25,6 +25,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [redirect, setRedirect] = useState(false);
   const [role, setrole] = useState("");
+  const [LoggedIn, setLoggedIn] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,6 +40,7 @@ const Login = () => {
           setPassword("");
           authenticate(data, () => {
             console.log("user is now authenticated");
+            setLoggedIn(true);
           });
         }
       })
@@ -59,6 +61,13 @@ const Login = () => {
   //     return <Navigate to="/" />;
   //   }
   // };
+  let navigate = useNavigate();
+
+  useEffect(() => {
+    if (LoggedIn) {
+      return navigate("/submit");
+    }
+  }, [LoggedIn]);
 
   return (
     <Box
