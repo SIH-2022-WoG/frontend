@@ -65,55 +65,57 @@ export default function SubmitThesis() {
     formData.append("fileName", values.file.name);
     const config = {
       headers: {
-        "content-type": "multipart/form-data",
+        "Content-Type": "multipart/form-data",
       },
     };
     axios
       .post(url, formData, config)
       .then((response) => {
-        setTextUrl(response.data.data.textRes.secure_url)
-        return fetch(`${API}student/protected/createThesis`, {
-          // mode: 'cors',
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-            Accept: "application/json",
-            "Content-Type": "application/json",
-            // 'Access-Control-Allow-Origin':'*'
-          },
-          body: JSON.stringify({
-            title,
-            abstract,
-            branch,
-            guides,
-            "fulltext": {
-              "mediaId": response.data.data.textRes.public_id,
-              "cloudUrl": response.data.data.textRes.secure_url,
-            },
-            "thesisMedia": {
-              "mediaId": response.data.data.pdfRes.public_id,
-              "cloudUrl": response.data.data.pdfRes.secure_url,
-            },
-          }),
-        });
-      })
-      .then((response) => {
-        console.log("h1", response);
-
-        return fetch(
-          `https://plagiarismchecker22.herokuapp.com/thesis/evaluate?id=${response.data._id}&lang=0`,
-          {
-            method: "POST",
-            headers: {
+        setTextUrl(response.data.data.textRes.secure_url);
+        console.log(response.data.data.textRes.secure_url)
+        axios
+          .post(
+            `${API}student/protected/createThesis`,
+            JSON.stringify({
+              title,
+              abstract,
+              branch,
+              guides,
+              fulltext: {
+                mediaId: response.data.data.textRes.public_id,
+                cloudUrl: response.data.data.textRes.secure_url,
+              },
+              thesisMedia: {
+                mediaId: response.data.data.pdfRes.public_id,
+                cloudUrl: response.data.data.pdfRes.secure_url,
+              },
+            }),
+            // mode: 'cors',
+            {headers: {
+              Authorization: `Bearer ${JSON.parse(localStorage.getItem("jwt"))}`,
               Accept: "application/json",
-              // "Content-Type": "application/json",
-              // // 'Access-Control-Allow-Origin':'*'
-            },
-            body: { fileUrl: txtUrl },
-          }
-        ).then((response) => {
-          console.log(response);
-        });
+              "Content-Type": "application/json",
+              // 'Access-Control-Allow-Origin':'*'
+            }}
+          )
+          .then((response) => {
+            console.log("txturl: ", txtUrl);
+            console.log(response)
+
+            axios
+              .post(
+                `https://mainserver22.herokuapp.com/thesis/evaluate?id=${response.data.data._id}&lang=0`,
+                { "fileUrl": txtUrl },
+                {headers: {
+                  Accept: "application/json",
+                  "Content-Type": "text/html; charset=UTF-8",
+                  // // 'Access-Control-Allow-Origin':'*'
+                }}
+              )
+              .then((response) => {
+                console.log(response);
+              }).catch((err) => console.log(err));
+          }).catch((err) => console.log(err));
       })
       .catch((err) => console.log(err));
   };
